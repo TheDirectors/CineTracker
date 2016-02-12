@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  episodes: 1
+  seasons: 1
+  episode: MyString
+  length: 1
+  air: MyString
+  date: 2016-02-11
+  actors: MyString
+  director: MyString
+  genre: MyString
+  airing: false
+  description: MyText
+
+two:
+  episodes: 1
+  seasons: 1
+  episode: MyString
+  length: 1
+  air: MyString
+  date: 2016-02-11
+  actors: MyString
+  director: MyString
+  genre: MyString
+  airing: false
+  description: MyText

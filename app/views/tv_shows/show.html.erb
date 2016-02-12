@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Episodes:</strong>
+  <%= @tv_show.episodes %>
+</p>
+
+<p>
+  <strong>Seasons:</strong>
+  <%= @tv_show.seasons %>
+</p>
+
+<p>
+  <strong>Episode:</strong>
+  <%= @tv_show.episode %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @tv_show.length %>
+</p>
+
+<p>
+  <strong>Air:</strong>
+  <%= @tv_show.air %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @tv_show.date %>
+</p>
+
+<p>
+  <strong>Actors:</strong>
+  <%= @tv_show.actors %>
+</p>
+
+<p>
+  <strong>Director:</strong>
+  <%= @tv_show.director %>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @tv_show.genre %>
+</p>
+
+<p>
+  <strong>Airing:</strong>
+  <%= @tv_show.airing %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @tv_show.description %>
+</p>
+
+<%= link_to 'Edit', edit_tv_show_path(@tv_show) %> |
+<%= link_to 'Back', tv_shows_path %>

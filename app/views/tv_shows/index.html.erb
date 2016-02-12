@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Tv Shows</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Episodes</th>
+      <th>Seasons</th>
+      <th>Episode</th>
+      <th>Length</th>
+      <th>Air</th>
+      <th>Date</th>
+      <th>Actors</th>
+      <th>Director</th>
+      <th>Genre</th>
+      <th>Airing</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tv_shows.each do |tv_show| %>
+      <tr>
+        <td><%= tv_show.episodes %></td>
+        <td><%= tv_show.seasons %></td>
+        <td><%= tv_show.episode %></td>
+        <td><%= tv_show.length %></td>
+        <td><%= tv_show.air %></td>
+        <td><%= tv_show.date %></td>
+        <td><%= tv_show.actors %></td>
+        <td><%= tv_show.director %></td>
+        <td><%= tv_show.genre %></td>
+        <td><%= tv_show.airing %></td>
+        <td><%= tv_show.description %></td>
+        <td><%= link_to 'Show', tv_show %></td>
+        <td><%= link_to 'Edit', edit_tv_show_path(tv_show) %></td>
+        <td><%= link_to 'Destroy', tv_show, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tv show', new_tv_show_path %>
