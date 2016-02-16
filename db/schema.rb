@@ -11,41 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160213042210) do
+ActiveRecord::Schema.define(version: 20160216073455) do
 
   create_table "episodes", force: :cascade do |t|
-    t.string   "director"
     t.integer  "season"
-    t.integer  "number"
-    t.integer  "length"
-    t.string   "actors"
+    t.integer  "episode"
+    t.date     "aired"
+    t.integer  "runtime"
     t.text     "description"
+    t.integer  "TVShow_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "episodes", ["TVShow_id"], name: "index_episodes_on_TVShow_id"
 
   create_table "movies", force: :cascade do |t|
     t.string   "title"
     t.integer  "runtime"
     t.string   "genre"
-    t.string   "release"
-    t.date     "date"
-    t.string   "actors"
-    t.string   "director"
+    t.date     "released"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
+  create_table "people", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tv_shows", force: :cascade do |t|
     t.integer  "episodes"
     t.integer  "seasons"
-    t.string   "episode"
-    t.integer  "length"
-    t.string   "air"
-    t.date     "date"
-    t.string   "actors"
-    t.string   "director"
+    t.date     "premiere"
+    t.integer  "avg_runtime"
     t.string   "genre"
     t.boolean  "airing"
     t.text     "description"

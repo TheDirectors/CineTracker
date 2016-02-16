@@ -3,12 +3,8 @@ class CreateTvShows < ActiveRecord::Migration
     create_table :tv_shows do |t|
       t.integer :episodes
       t.integer :seasons
-      t.string :episode
-      t.integer :length
-      t.string :air
-      t.date :date
-      t.string :actors
-      t.string :director
+      t.date :premiere
+      t.integer :avg_runtime
       t.string :genre
       t.boolean :airing
       t.text :description
