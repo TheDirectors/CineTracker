@@ -4,10 +4,7 @@ class CreateMovies < ActiveRecord::Migration
       t.string :title
       t.integer :runtime
       t.string :genre
-      t.string :release
-      t.date :date
-      t.string :actors
-      t.string :director
+      t.date :released
       t.text :description
 
       t.timestamps null: false

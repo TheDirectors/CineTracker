@@ -1,12 +1,12 @@
 class CreateEpisodes < ActiveRecord::Migration
   def change
     create_table :episodes do |t|
-      t.string :director
       t.integer :season
-      t.integer :number
-      t.integer :length
-      t.string :actors
+      t.integer :episode
+      t.date :aired
+      t.integer :runtime
       t.text :description
+      t.references :TVShow, index: true, foreign_key: true
 
       t.timestamps null: false
     end

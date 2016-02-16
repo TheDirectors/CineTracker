@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<a href="/">Home</a>
 <h1>Listing Tv Shows</h1>
 
 <table>
@@ -7,12 +7,8 @@
     <tr>
       <th>Episodes</th>
       <th>Seasons</th>
-      <th>Episode</th>
-      <th>Length</th>
-      <th>Air</th>
-      <th>Date</th>
-      <th>Actors</th>
-      <th>Director</th>
+      <th>Premiere</th>
+      <th>Avg runtime</th>
       <th>Genre</th>
       <th>Airing</th>
       <th>Description</th>
@@ -25,12 +21,8 @@
       <tr>
         <td><%= tv_show.episodes %></td>
         <td><%= tv_show.seasons %></td>
-        <td><%= tv_show.episode %></td>
-        <td><%= tv_show.length %></td>
-        <td><%= tv_show.air %></td>
-        <td><%= tv_show.date %></td>
-        <td><%= tv_show.actors %></td>
-        <td><%= tv_show.director %></td>
+        <td><%= tv_show.premiere %></td>
+        <td><%= tv_show.avg_runtime %></td>
         <td><%= tv_show.genre %></td>
         <td><%= tv_show.airing %></td>
         <td><%= tv_show.description %></td>

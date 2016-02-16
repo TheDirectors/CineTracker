@@ -3,12 +3,8 @@
 one:
   episodes: 1
   seasons: 1
-  episode: MyString
-  length: 1
-  air: MyString
-  date: 2016-02-11
-  actors: MyString
-  director: MyString
+  premiere: 2016-02-15
+  avg_runtime: 1
   genre: MyString
   airing: false
   description: MyText
@@ -16,12 +12,8 @@ one:
 two:
   episodes: 1
   seasons: 1
-  episode: MyString
-  length: 1
-  air: MyString
-  date: 2016-02-11
-  actors: MyString
-  director: MyString
+  premiere: 2016-02-15
+  avg_runtime: 1
   genre: MyString
   airing: false
   description: MyText

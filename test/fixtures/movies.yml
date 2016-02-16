@@ -4,18 +4,12 @@ one:
   title: MyString
   runtime: 1
   genre: MyString
-  release: MyString
-  date: 2016-02-11
-  actors: MyString
-  director: MyString
+  released: 2016-02-15
   description: MyText
 
 two:
   title: MyString
   runtime: 1
   genre: MyString
-  release: MyString
-  date: 2016-02-11
-  actors: MyString
-  director: MyString
+  released: 2016-02-15
   description: MyText
