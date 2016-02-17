@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Episodes</th>
+      <th>Episode count</th>
       <th>Seasons</th>
       <th>Premiere</th>
       <th>Avg runtime</th>
@@ -21,7 +21,7 @@
     <% @tv_shows.each do |tv_show| %>
       <tr>
         <td><%= tv_show.title %></td>
-        <td><%= tv_show.episodes %></td>
+        <td><%= tv_show.episode_count %></td>
         <td><%= tv_show.seasons %></td>
         <td><%= tv_show.premiere %></td>
         <td><%= tv_show.avg_runtime %></td>

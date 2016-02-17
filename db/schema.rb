@@ -44,15 +44,15 @@ ActiveRecord::Schema.define(version: 20160217034020) do
 
   create_table "tv_shows", force: :cascade do |t|
     t.string   "title"
-    t.integer  "episodes"
+    t.integer  "episode_count"
     t.integer  "seasons"
     t.date     "premiere"
     t.integer  "avg_runtime"
     t.string   "genre"
     t.boolean  "airing"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end

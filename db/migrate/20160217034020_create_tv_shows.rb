@@ -2,7 +2,7 @@ class CreateTvShows < ActiveRecord::Migration
   def change
     create_table :tv_shows do |t|
       t.string :title
-      t.integer :episodes
+      t.integer :episode_count
       t.integer :seasons
       t.date :premiere
       t.integer :avg_runtime
