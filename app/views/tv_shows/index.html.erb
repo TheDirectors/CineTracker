@@ -1,10 +1,11 @@
 <p id="notice"><%= notice %></p>
-<a href="/">Home</a>
+
 <h1>Listing Tv Shows</h1>
 
 <table>
   <thead>
     <tr>
+      <th>Title</th>
       <th>Episodes</th>
       <th>Seasons</th>
       <th>Premiere</th>
@@ -19,6 +20,7 @@
   <tbody>
     <% @tv_shows.each do |tv_show| %>
       <tr>
+        <td><%= tv_show.title %></td>
         <td><%= tv_show.episodes %></td>
         <td><%= tv_show.seasons %></td>
         <td><%= tv_show.premiere %></td>

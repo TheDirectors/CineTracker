@@ -18,7 +18,7 @@ class TvShowsControllerTest < ActionController::TestCase
 
   test "should create tv_show" do
     assert_difference('TvShow.count') do
-      post :create, tv_show: { airing: @tv_show.airing, avg_runtime: @tv_show.avg_runtime, description: @tv_show.description, episodes: @tv_show.episodes, genre: @tv_show.genre, premiere: @tv_show.premiere, seasons: @tv_show.seasons }
+      post :create, tv_show: { airing: @tv_show.airing, avg_runtime: @tv_show.avg_runtime, description: @tv_show.description, episodes: @tv_show.episodes, genre: @tv_show.genre, premiere: @tv_show.premiere, seasons: @tv_show.seasons, title: @tv_show.title }
     end
 
     assert_redirected_to tv_show_path(assigns(:tv_show))
@@ -35,7 +35,7 @@ class TvShowsControllerTest < ActionController::TestCase
   end
 
   test "should update tv_show" do
-    patch :update, id: @tv_show, tv_show: { airing: @tv_show.airing, avg_runtime: @tv_show.avg_runtime, description: @tv_show.description, episodes: @tv_show.episodes, genre: @tv_show.genre, premiere: @tv_show.premiere, seasons: @tv_show.seasons }
+    patch :update, id: @tv_show, tv_show: { airing: @tv_show.airing, avg_runtime: @tv_show.avg_runtime, description: @tv_show.description, episodes: @tv_show.episodes, genre: @tv_show.genre, premiere: @tv_show.premiere, seasons: @tv_show.seasons, title: @tv_show.title }
     assert_redirected_to tv_show_path(assigns(:tv_show))
   end
 

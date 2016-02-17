@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tv_shows
   resources :people
   resources :episodes
   resources :tv_shows

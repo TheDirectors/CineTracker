@@ -1,18 +1,20 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  title: MyString
   episodes: 1
   seasons: 1
-  premiere: 2016-02-15
+  premiere: 2016-02-16
   avg_runtime: 1
   genre: MyString
   airing: false
   description: MyText
 
 two:
+  title: MyString
   episodes: 1
   seasons: 1
-  premiere: 2016-02-15
+  premiere: 2016-02-16
   avg_runtime: 1
   genre: MyString
   airing: false
