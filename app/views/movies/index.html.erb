@@ -2,9 +2,21 @@
 <a href="/">Home</a>
 <h1>Listing Movies</h1>
 
+<style type="text/css">
+  .row
+  {
+    background-color: #D9D9D9;
+  }
+  .titles
+  {
+    background-color: #A6A6A6;
+  }
+
+</style>
+
 <table>
   <thead>
-    <tr>
+    <tr class="titles" >
       <th>Title</th>
       <th>Runtime</th>
       <th>Genre</th>
@@ -16,7 +28,7 @@
 
   <tbody>
     <% @movies.each do |movie| %>
-      <tr>
+      <tr class="row" >
         <td><%= movie.title %></td>
         <td><%= movie.runtime %></td>
         <td><%= movie.genre %></td>

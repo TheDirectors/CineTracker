@@ -27,7 +27,7 @@ group :development, :test do
 gem 'pg', group: :production
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.5', :require => 'bcrypt'
+gem 'bcrypt', '~> 3.1.10', :require => 'bcrypt'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
