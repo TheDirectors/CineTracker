@@ -1,5 +1,5 @@
 class TvShowsController < ApplicationController
-  before_action :set_tv_show, only: [:show, :edit, :update, :destroy]
+  before_action :set_tv_show, only: [:show]#, :edit, :update, :destroy]
 
   # GET /tv_shows
   # GET /tv_shows.json

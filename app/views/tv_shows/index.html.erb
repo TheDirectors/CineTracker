@@ -29,13 +29,9 @@
         <td><%= tv_show.airing %></td>
         <td><%= tv_show.description %></td>
         <td><%= link_to 'Show', tv_show %></td>
-        <td><%= link_to 'Edit', edit_tv_show_path(tv_show) %></td>
-        <td><%= link_to 'Destroy', tv_show, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Tv show', new_tv_show_path %>
