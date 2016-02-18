@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
+  get 'users/new'
+  
+  match '/signup', to: 'users#new', via: 'get'
+
   resources :people
   resources :episodes
   resources :movies
   resources :tv_shows
+  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
