@@ -1,29 +1,8 @@
 // Place all the styles related to the TVShows controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#home
-{
-	text-align: center;
-	color: black;
-	text-decoration: none;
-	font-family: 'Roboto', sans-serif;
-	font-size: 25pt;
-	text-shadow: white 0.1em 0.1em 0.2em;
-}
-#head
-{
-	text-align: center;
-	font-family: 'Roboto', sans-serif;
-	font-size: 25pt;
-	text-shadow: white 0.1em 0.1em 0.2em;
-}
-*, *:before, *:after {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
 
-.tvbody {
+.tv_shows-index {
 	background: #D4D4D4;
 	font-family: 'Open Sans', sans-serif;
 }

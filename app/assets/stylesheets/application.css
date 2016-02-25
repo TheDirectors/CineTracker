@@ -10,6 +10,22 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require_tree .
  */
+.home
+{
+	text-align: center;
+	color: black;
+	text-decoration: none;
+	font-family: 'Roboto', sans-serif;
+	font-size: 25pt;
+	text-shadow: white 0.1em 0.1em 0.2em;
+}
+.head
+{
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	font-size: 25pt;
+	text-shadow: white 0.1em 0.1em 0.2em;
+}
