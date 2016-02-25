@@ -27,7 +27,7 @@ group :development, :test do
 gem 'pg', group: :production
 
 # NOTE: added manually to fix heroku
-gem 'rails_12factor', group: :production
+gem 'rails_12factor'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.10', :require => 'bcrypt'
@@ -50,6 +50,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-# NOTE: added manually according to heroku recommendation
-ruby '2.2.4'
