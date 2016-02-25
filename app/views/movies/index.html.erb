@@ -1,86 +1,28 @@
+<% @body_class = "moviesbody" %>
 <p id="notice"><%= notice %></p>
 <a id="home" href="/">Home</a>
-<h1>Movies</h1>
-
-<style type="text/css">
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600);
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
-
-  #home
-  {
-    text-align: center;
-    color: black;
-    text-decoration: none;
-    font-family: 'Roboto', sans-serif;
-    font-size: 25pt;
-    text-shadow: white 0.1em 0.1em 0.2em;
-  }
-  h1
-  {
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    font-size: 25pt;
-    text-shadow: white 0.1em 0.1em 0.2em;
-  }
-  *, *:before, *:after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    background: #D4D4D4;
-    font-family: 'Open Sans', sans-serif;
-  }
-  table {
-    background: #363636;
-    border-radius: 0.25em;
-    border-collapse: collapse;
-    margin: 1em;
-  }
-  th {
-    border-bottom: 1px solid black;
-    color: #E2B842;
-    font-size: 0.85em;
-    font-weight: 600;
-    padding: 0.5em 1em;
-    text-align: left;
-  }
-  td {
-    color: #fff;
-    font-weight: 400;
-    padding: 0.65em 1em;
-  }
-  tbody tr {
-    transition: background 0.25s ease;
-    border-bottom: 1px solid black;
-  }
-  tbody tr:hover {
-    background: #858585;
-  }
-</style>
-
-<table>
+<h1 id="head">Movies</h1>
+<table id="movietable">
   <thead>
     <tr class="titles" >
-      <th>Title</th>
-      <th>Runtime</th>
-      <th>Genre</th>
-      <th>Released</th>
-      <th>Description</th>
-      <th colspan="3"></th>
+      <th class="theaders">Title</th>
+      <th class="theaders">Runtime</th>
+      <th class="theaders">Genre</th>
+      <th class="theaders">Released</th>
+      <th class="theaders">Description</th>
+      <th class="theaders" colspan="3"></th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody id="movietbody">
     <% @movies.each do |movie| %>
       <tr class="row" >
-        <td><%= movie.title %></td>
-        <td><%= movie.runtime %></td>
-        <td><%= movie.genre %></td>
-        <td><%= movie.released.year %></td>
-        <td><%= movie.description %></td>
-        <td><%= link_to 'Show', movie %></td>
+        <td class="tdata"><%= movie.title %></td>
+        <td class="tdata"><%= movie.runtime %></td>
+        <td class="tdata"><%= movie.genre %></td>
+        <td class="tdata"><%= movie.released.year %></td>
+        <td class="tdata"><%= movie.description %></td>
+        <td class="tdata"><%= link_to 'Show', movie %></td>
       </tr>
     <% end %>
   </tbody>

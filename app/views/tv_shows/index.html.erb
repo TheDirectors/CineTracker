@@ -1,89 +1,34 @@
+<% @body_class = "tvbody" %>
 <p id="notice"><%= notice %></p>
 <a id="home" href="/">Home</a>
-<h1>TV Shows</h1>
-
-<style type="text/css">
-  #home
-  {
-    text-align: center;
-    color: black;
-    text-decoration: none;
-    font-family: 'Roboto', sans-serif;
-    font-size: 25pt;
-    text-shadow: white 0.1em 0.1em 0.2em;
-  }
-  h1
-  {
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    font-size: 25pt;
-    text-shadow: white 0.1em 0.1em 0.2em;
-  }
-  *, *:before, *:after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    background: #D4D4D4;
-    font-family: 'Open Sans', sans-serif;
-  }
-  table {
-    background: #363636;
-    border-radius: 0.25em;
-    border-collapse: collapse;
-    margin: 1em;
-  }
-  th {
-    border-bottom: 1px solid black;
-    color: #E2B842;
-    font-size: 0.85em;
-    font-weight: 600;
-    padding: 0.5em 1em;
-    text-align: left;
-  }
-  td {
-    color: #fff;
-    font-weight: 400;
-    padding: 0.65em 1em;
-  }
-  tbody tr {
-    transition: background 0.25s ease;
-    border-bottom: 1px solid black;
-  }
-  tbody tr:hover {
-    background: #858585;
-  }
-</style>
-
-<table>
+<h1 id="head">TV Shows</h1>
+<table id="tvtable">
   <thead>
-    <tr class="titles" >
-      <th>Title</th>
-      <th>Episode count</th>
-      <th>Seasons</th>
-      <th>Premiere</th>
-      <th>Avg runtime</th>
-      <th>Genre</th>
-      <th>Airing</th>
-      <th>Description</th>
-      <th colspan="3"></th>
+    <tr>
+      <th class="theaders">Title</th>
+      <th class="theaders">Episode count</th>
+      <th class="theaders">Seasons</th>
+      <th class="theaders">Premiere</th>
+      <th class="theaders">Avg runtime</th>
+      <th class="theaders">Genre</th>
+      <th class="theaders">Airing</th>
+      <th class="theaders">Description</th>
+      <th class="theaders" colspan="3"></th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody id="tvtbody">
     <% @tv_shows.each do |tv_show| %>
       <tr class="row" >
-        <td><%= tv_show.title %></td>
-        <td><%= tv_show.episode_count %></td>
-        <td><%= tv_show.seasons %></td>
-        <td><%= tv_show.premiere.year %></td>
-        <td><%= tv_show.avg_runtime %></td>
-        <td><%= tv_show.genre %></td>
-        <td><%= tv_show.airing %></td>
-        <td><%= tv_show.description %></td>
-        <td><%= link_to 'Show', tv_show %></td>
+        <td class="tdata"><%= tv_show.title %></td>
+        <td class="tdata"><%= tv_show.episode_count %></td>
+        <td class="tdata"><%= tv_show.seasons %></td>
+        <td class="tdata"><%= tv_show.premiere.year %></td>
+        <td class="tdata"><%= tv_show.avg_runtime %></td>
+        <td class="tdata"><%= tv_show.genre %></td>
+        <td class="tdata"><%= tv_show.airing %></td>
+        <td class="tdata"><%= tv_show.description %></td>
+        <td class="tdata"><%= link_to 'Show', tv_show %></td>
       </tr>
     <% end %>
   </tbody>
