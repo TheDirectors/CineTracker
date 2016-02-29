@@ -11,24 +11,9 @@
  * file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require bootstrap
+ *= require bootstrap.min
+ *= require font-awesome
+ *= require font-awesome.min
+ *= require grayscale
  */
-@import "bootstrap-sprockets"
-@import "bootstrap"
-
-.home
-{
-	text-align: center;
-	color: black;
-	text-decoration: none;
-	font-family: 'Roboto', sans-serif;
-	font-size: 25pt;
-	text-shadow: white 0.1em 0.1em 0.2em;
-}
-.head
-{
-	text-align: center;
-	font-family: 'Roboto', sans-serif;
-	font-size: 25pt;
-	text-shadow: white 0.1em 0.1em 0.2em;
-}
