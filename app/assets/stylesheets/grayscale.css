@@ -45,7 +45,7 @@ p {
 }
 
 a {
-    color: #42dca3;
+    color: tomato;
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
@@ -265,7 +265,7 @@ a:focus {
     width: 100%;
     padding: 50px 0;
     color: #fff;
-    background: url("/assets/downloads-bg.jpg") no-repeat center center scroll;
+    background: url("/assets/sign-up-bg.jpg") no-repeat center center scroll;
     background-color: #000;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -289,8 +289,8 @@ a:focus {
     }
 
     #map {
-        height: 400px;
-        margin-top: 250px;
+        height: 500px;
+        margin-top: 150px;
     }
 }
 
@@ -305,17 +305,17 @@ a:focus {
 }
 
 .btn-default {
-    border: 1px solid #42dca3;
-    color: #42dca3;
+    border: 1px solid tomato;
+    color: tomato;
     background-color: transparent;
 }
 
 .btn-default:hover,
 .btn-default:focus {
-    border: 1px solid #42dca3;
+    border: 1px solid black;
     outline: 0;
     color: #000;
-    background-color: #42dca3;
+    background-color: tomato;
 }
 
 ul.banner-social-buttons {
@@ -373,5 +373,46 @@ body {
 }
 
 #logo {
-    width: 30%;
+    width: 200px;
+}
+
+#disclaimer {
+    font-size: 14px;
+}
+
+/* Swiper style code for main page */
+
+.swiper-container {
+        width: 80%;
+        height: auto;
+        margin: 20px auto;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: black;
+        width: 60%;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .swiper-slide:nth-child(2n) {
+        width: 40%;
+    }
+    .swiper-slide:nth-child(3n) {
+        width: 20%;
+    }
+
+.poster {
+    width: 90%;
 }

@@ -125,13 +125,45 @@
     </section>
 
     <!-- Map Section -->
-    <div id="map"></div>
+    <div id="map">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><%=image_tag("deadpool-poster.jpg", :class => "poster") %></div>
+                <div class="swiper-slide"><%=image_tag("interstellar-poster.jpg", :class => "poster") %></div>
+                <div class="swiper-slide"><%=image_tag("mad-max-fury-road-poster.jpg", :class => "poster") %></div>
+                <div class="swiper-slide"><%=image_tag("the-martian-poster.jpg", :class => "poster") %></div>
+                <div class="swiper-slide"><%=image_tag("star-wars-the-force-awakens-poster.jpg", :class => "poster") %></div>
+                <div class="swiper-slide"><%=image_tag("spectre-poster.jpg", :class => "poster") %></div>
+                <div class="swiper-slide"><%=image_tag("kingsman-the-secret-service-poster.jpg", :class => "poster") %></div>
+                <div class="swiper-slide"><%=image_tag("ex-machina-poster.jpg", :class => "poster") %></div>
+                <div class="swiper-slide"><%=image_tag("sicario-poster.jpg", :class => "poster") %></div>
+                <div class="swiper-slide"><%=image_tag("the-revenant-poster.jpg", :class => "poster") %></div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination swiper-pagination-white"></div>
+            <div class="swiper-button-next swiper-button-white"></div>
+            <div class="swiper-button-prev swiper-button-white"></div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
         <div class="container text-center"><%=image_tag("tmdblogo2.png", :id => "logo") %></div>
         <div class="container text-center">
-            <p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
+            <p id="disclaimer">This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
         </div>
     </footer>
+
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            slidesPerView: 4,
+            centeredSlides: true,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            paginationClickable: true,
+            loop: true,
+            spaceBetween: 5
+        });
+        </script>
 </body>
