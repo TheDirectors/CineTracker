@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160217034020) do
+ActiveRecord::Schema.define(version: 20160227041557) do
 
   create_table "episodes", force: :cascade do |t|
     t.integer  "season"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20160217034020) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
+    t.string   "salt"
   end
 
 end
