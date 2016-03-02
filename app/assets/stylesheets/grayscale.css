@@ -54,7 +54,7 @@ a {
 a:hover,
 a:focus {
     text-decoration: none;
-    color: #1d9b6c;
+    color: #EB3C3C;
 }
 
 .light {
@@ -147,7 +147,7 @@ a:focus {
     padding: 100px 0;
     text-align: center;
     color: #fff;
-    background: url("/assets/intro-bg.jpg") no-repeat bottom center scroll;
+    background: url("/assets/intro-v8-bg.jpg") no-repeat bottom center scroll;
     background-color: #000;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -305,8 +305,8 @@ a:focus {
 }
 
 .btn-default {
-    border: 1px solid tomato;
-    color: tomato;
+    border: 1px solid #EB3C3C;
+    color: #EB3C3C;
     background-color: transparent;
 }
 
@@ -315,7 +315,7 @@ a:focus {
     border: 1px solid black;
     outline: 0;
     color: #000;
-    background-color: tomato;
+    background-color: #EB3C3C;
 }
 
 ul.banner-social-buttons {
