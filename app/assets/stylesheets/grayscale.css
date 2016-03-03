@@ -456,3 +456,45 @@ body {
 :placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
   color: #EB3C3C;
 }
+
+.user-forms {
+    padding-left: 0px;
+    margin-left: none;
+    list-style-type: none;
+}
+
+.form-field {
+    width: 400px;
+    margin-bottom: 35px;
+}
+
+.form-field:hover {
+    color: white;
+    border-color: #EB3C3C;
+    background-color: black
+}
+
+#signup-form {
+    width: 100%;
+    height: 100%;
+    background: url("/assets/intro-v2-bg.jpg") no-repeat bottom center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+#login-form {
+    width: 100%;
+    height: 100%;
+    background: url("/assets/intro-v10-bg.jpg") no-repeat bottom center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.signup-header {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, .5);
+}
