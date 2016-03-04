@@ -9,10 +9,11 @@ Rails.application.routes.draw do
   get    'signup'  => 'users#new'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
-  get 'logout' => 'sessions#destroy'
+  get    'logout'  => 'sessions#destroy'
   delete 'logout'  => 'sessions#destroy'
 
   match '/signup', to: 'users#new', via: 'get'
+  match '/profile', to: 'sessions#profile', via: 'get'
 
   resources :people
   resources :episodes

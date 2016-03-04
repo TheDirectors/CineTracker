@@ -42,28 +42,34 @@
 	                    <li class="hidden">
 	                        <a href="#page-top"></a>
 	                    </li>
-	                    <li>
-	                        <a class="page-scroll" href="/#about">About</a>
-	                    </li>
-	                    <% if current_user != nil %>
+	                    <% if logged_in? %>
 	                    	<% @current_user = current_user %>
 	                    	<li>
-	                        	<a class="page-scroll" href="/"><span style="color: #EB3C3C"><%= @current_user.name %></span></a>
+	                        	<a class="page-scroll" href="/profile"><span style="color: #EB3C3C"><%= @current_user.name %></span></a>
 	                    	</li>
+	                    	<li>
+		                        <a class="page-scroll" href="/#recommended">Recommended</a>
+		                    </li>
+		                    <li>
+		                        <a class="page-scroll" href="/#search">Search</a>
+		                    </li>
 	                    	<li>
 	                        	<%= link_to "Logout", logout_path, method: "delete" %>
 	                    	</li>
 	                    <% else %>
+		                    <li>
+		                        <a class="page-scroll" href="/#about">About</a>
+		                    </li>
 		                    <li>
 		                        <a class="page-scroll" href="/signup">Sign Up</a>
 		                    </li>
 		                    <li>
 		                        <a class="page-scroll" href="/login">Login</a>
 		                    </li>
+		                    <li>
+		                        <a class="page-scroll" href="/#search">Search</a>
+		                    </li>
 	                    <% end %>
-	                    <li>
-	                        <a class="page-scroll" href="/#search">Search</a>
-	                    </li>
 	                </ul>
 	            </div>
 	            <!-- /.navbar-collapse -->

@@ -1,3 +1,8 @@
-<h1>Sessions#profile</h1>
-<p>Find me in app/views/sessions/profile.html.erb</p>
-<h2 class='User_Header'> <%=@current_user.username%> Profile <h2>
+<% content_for :head do %>
+    <title>Profile</title>
+<% end %>
+
+<div class = "container content-section" >
+	<h2 class='User_Header'> <%= current_user.name %>'s Profile <h2>
+	<p>User profile and lists will be shown here.</p>
+</div>

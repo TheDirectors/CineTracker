@@ -498,3 +498,19 @@ body {
     display: inline-block;
     background-color: rgba(0, 0, 0, .5);
 }
+
+#recommended {
+    height: 100%;
+}
+
+.recommended-section {
+    width: 100%;
+    padding: 250px 0;
+    color: #fff;
+    background: url("/assets/sign-up-bg.jpg") no-repeat center center scroll;
+    background-color: #000;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
