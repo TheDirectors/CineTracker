@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160227041557) do
+ActiveRecord::Schema.define(version: 20160305232448) do
 
   create_table "episodes", force: :cascade do |t|
     t.integer  "season"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 20160227041557) do
   end
 
   add_index "episodes", ["TVShow_id"], name: "index_episodes_on_TVShow_id"
+
+  create_table "lists", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "lists", ["user_id"], name: "index_lists_on_user_id"
 
   create_table "movies", force: :cascade do |t|
     t.string   "title"
