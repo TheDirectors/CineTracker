@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160305232448) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "episodes", force: :cascade do |t|
     t.integer  "season"
     t.integer  "episode"
@@ -24,7 +27,7 @@ ActiveRecord::Schema.define(version: 20160305232448) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "episodes", ["TVShow_id"], name: "index_episodes_on_TVShow_id"
+  add_index "episodes", ["TVShow_id"], name: "index_episodes_on_TVShow_id", using: :btree
 
   create_table "lists", force: :cascade do |t|
     t.string   "name"
@@ -33,7 +36,7 @@ ActiveRecord::Schema.define(version: 20160305232448) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "lists", ["user_id"], name: "index_lists_on_user_id"
+  add_index "lists", ["user_id"], name: "index_lists_on_user_id", using: :btree
 
   create_table "movies", force: :cascade do |t|
     t.string   "title"
