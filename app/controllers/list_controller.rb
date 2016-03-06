@@ -17,7 +17,7 @@ class ListController < ApplicationController
     def set_list
       @list = List.find(params[:name])
     end
-  def list_params
-    params.require(:list).permit(:name, :user_id)
-  end
+    def list_params
+      params.require(:list).permit(:name, :user_id)
+    end
 end
