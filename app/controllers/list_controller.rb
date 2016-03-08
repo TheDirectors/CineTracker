@@ -16,10 +16,6 @@ class ListController < ApplicationController
     @list.destroy
   end
 
-  def add_title
-    #TODO write this part.
-    # use += instead of push
-  end
 
   private
 
