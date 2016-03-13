@@ -84,15 +84,18 @@
     <!-- Map Section -->
     <section>
         <div id="map">
+        <% @results = [] %>
         <% if params[:mov] != nil && params[:mov] != "" %>
             <% @results = Movie.search(params[:mov]) %>
         <% else %>
             <% @results = TvShow.search(params[:tv]) %>
+            <% if params[:tv] != nil && params[:tv] != "" %>
+            <% end %>
         <% end %>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <% @results.each do |result| %>
-                        <div class="swiper-slide"><%=image_tag(result, :class => "poster") %></div>
+                        <div class="swiper-slide"><a href="/info?<%= result[1] %>"><%=image_tag(result[0], :class => "poster") %></a></div>
                     <% end %>
                 </div>
                 <!-- Add Pagination -->

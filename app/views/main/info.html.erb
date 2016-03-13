@@ -1,0 +1,38 @@
+<% content_for :head do %>
+    <title>Info</title>
+<% end %>
+
+<div class="container content-section">
+	<% if params[:mov] != nil && params[:mov] != "" %>
+	    <% @result = Movie.info(params[:mov]) %>
+	    <% @term = "title" %>
+	<% elsif params[:tv] != nil && params[:tv] != "" %>
+	    <% @result = TvShow.info(params[:tv]) %>
+	    <% @term = "name" %>
+	<% end %>
+	<div class="info">
+		<h1>Title</h1>
+		<p><%= @result[@term] %></p>
+		<h1>Summary</h1>
+		<p><%= @result[:overview] %></p>
+	</div>
+	<% @base_url = Tmdb::Configuration.get.images.base_url + Tmdb::Configuration.get.images.backdrop_sizes[3] %>
+	<% @backdrop = @base_url + @result[:backdrop_path] %>
+</div>
+<style type="text/css">
+	body {
+		background: url(<%= @backdrop %>) no-repeat bottom center scroll;
+	    background-color: #000;
+	    -webkit-background-size: cover;
+	    -moz-background-size: cover;
+	    background-size: cover;
+	    -o-background-size: cover;
+	}
+	.navbar .container {
+		background-color: rgba(0, 0, 0, .7);
+	}
+	.info {
+		padding: 25px;
+		background-color: rgba(0, 0, 0, .7);
+	}
+</style>

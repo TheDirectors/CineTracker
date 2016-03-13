@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   match '/signup', to: 'users#new', via: 'get'
   match '/profile', to: 'sessions#profile', via: 'get'
+  match '/info', to: 'main#info', via: 'get'
 
   resources :people
   resources :episodes
