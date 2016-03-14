@@ -9,7 +9,7 @@ class ListController < ApplicationController
   end
 
   def create
-    @list = List.new(list_params) # needs more args probably
+    @list = List.new(list_params)
   end
 
   def destroy
@@ -23,6 +23,6 @@ class ListController < ApplicationController
       @list = List.find(params[:name])
     end
     def list_params
-      params.require(:list).permit(:name, :titles)
+      params.require(:list).permit(:name)
     end
 end
