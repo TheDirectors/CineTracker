@@ -2,11 +2,21 @@
     <title>Profile</title>
 <% end %>
 
-<div class = "container content-section" >
+<div class = "container content-section">
 	<h2 class='User_Header'> <%= current_user.name %>'s Profile <h2>
 	<% current_user.lists.each do |lis| %>
 	<h3><%= lis.name %></h3>
 	<h4>Movies</h4>
+	<p>
+		<% lis.movie_ids.each do |id| %>
+			<a href="/info?mov=<%= id %>"><%= Movie.info(id)[:title] %></a><br>
+		<% end %>
+	</p>
 	<h4>Shows</h4>
+	<p>
+		<% lis.tv_show_ids.each do |id| %>
+			<a href="/info?tv=<%= id %>"><%= TvShow.info(id)[:name] %></a><br>
+		<% end %>
+	</p>
 	<% end %>
 </div>
