@@ -3,11 +3,41 @@
 <% end %>
 
 <div class="container content-section">
+<% if params[:addto] != nil && params[:addto] != "" %>
+	<div class="added text-center">
+	<% @listname = "" + params[:addto] %>
+	<% @base_url = Tmdb::Configuration.get.images.base_url + Tmdb::Configuration.get.images.backdrop_sizes[3] %>
+	<% @backdrop = @base_url + "/" + params[:bg] %>
+	<% @lis = (current_user.lists.find_by name: @listname) %>
+	<% @addId = params[:id].to_i %>
+	<% if params[:type] == "mov" %>
+		<% if @lis.movie_ids.include? @addId %>
+			<h4>This movie is already in your "<%= @listname %>" list.</h4>
+		<% else %>
+			<% @lis.movie_ids << @addId %>
+			<% @lis.save %>
+			<h4>The movie has been added to your "<%= @listname %>" list.</h4>
+		<% end %>
+	<% else %>
+		<% if @lis.tv_show_ids.include? @addId %>
+			<h4>This show is already in your "<%= @listname %>" list.</h4>
+		<% else %>
+			<% @lis.tv_show_ids << @addId %>
+			<% @lis.save %>
+			<h4>The show has been added to your "<%= @listname %>" list.</h4>
+		<% end %>
+	<% end %>
+	</div>
+<% else %>
 	<% if params[:mov] != nil && params[:mov] != "" %>
-	    <% @result = Movie.info(params[:mov]) %>
+		<% @type = "mov" %>
+		<% @id = params[:mov] %>
+	    <% @result = Movie.info(@id) %>
 	    <% @term = "title" %>
 	<% elsif params[:tv] != nil && params[:tv] != "" %>
-	    <% @result = TvShow.info(params[:tv]) %>
+		<% @type = "tv" %>
+		<% @id = params[:tv] %>
+	    <% @result = TvShow.info(@id) %>
 	    <% @term = "name" %>
 	<% end %>
 	<div class="info">
@@ -15,9 +45,24 @@
 		<p><%= @result[@term] %></p>
 		<h1>Summary</h1>
 		<p><%= @result[:overview] %></p>
+		<% if logged_in? %>
+			<ul class="text-center list-inline banner-social-buttons">
+				<% current_user.lists.each do |lis| %>
+				    <li>
+				        <form>
+				        	<input type="hidden" name="bg" value="<%= @result[:backdrop_path][1..-1] %>"></input>
+				        	<input type="hidden" name="type" value="<%= @type %>"></input>
+				        	<input type="hidden" name="id" value="<%= @id %>"></input>
+				            <button type="submit" name="addto" class="btn btn-lg btn-default" value="<%= lis.name %>">Add to "<%= lis.name %>" list</button>
+				        </form>
+				    </li>
+			    <% end %>
+			</ul>
+        <% end %>
 	</div>
 	<% @base_url = Tmdb::Configuration.get.images.base_url + Tmdb::Configuration.get.images.backdrop_sizes[3] %>
 	<% @backdrop = @base_url + @result[:backdrop_path] %>
+<% end %>
 </div>
 <style type="text/css">
 	body {
@@ -33,6 +78,11 @@
 	}
 	.info {
 		padding: 25px;
+		background-color: rgba(0, 0, 0, .7);
+	}
+	.added {
+		padding-top: 35px;
+		padding-bottom: 1px;
 		background-color: rgba(0, 0, 0, .7);
 	}
 </style>
