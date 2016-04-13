@@ -1,13 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Project Schedule" company="The-Directors" webLink="http://" view-date="2016-04-12" view-index="0" gantt-divider-location="353" resource-divider-location="300" version="2.7.2" locale="en_US">
+<?xml version="1.0" encoding="UTF-8"?><project name="Project Schedule" company="The-Directors" webLink="http://" view-date="2016-04-20" view-index="1" gantt-divider-location="353" resource-divider-location="300" version="2.7.2" locale="en_US">
     <description/>
     <view zooming-state="default:2" id="gantt-chart">
         <field id="tpd3" name="Name" width="57" order="0"/>
         <field id="tpd4" name="Begin date" width="21" order="1"/>
         <field id="tpd5" name="End date" width="21" order="2"/>
+        <option id="color.recent"><![CDATA[#99ff00 #33cc00 #cc0000]]></option>
     </view>
     <view id="resource-table">
-        <field id="0" name="Name" width="70" order="0"/>
-        <field id="1" name="Default role" width="29" order="1"/>
+        <field id="0" name="Name" width="56" order="0"/>
+        <field id="1" name="Default role" width="43" order="1"/>
     </view>
     <!-- -->
     <calendars>
@@ -33,8 +34,16 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
+        <task id="0" name="Code Review" color="#99ff00" meeting="false" start="2016-04-26" duration="1" complete="0" priority="2" expand="true"/>
+        <task id="2" name="Application Demo" color="#99ff00" meeting="false" start="2016-05-10" duration="1" complete="0" expand="true"/>
+        <task id="5" name="Ship Product!" color="#99ff00" meeting="false" start="2016-05-16" duration="1" complete="0" expand="true"/>
     </tasks>
-    <resources/>
+    <resources>
+        <resource id="0" name="Eddie Broeder" function="Default:0" contacts="" phone=""/>
+        <resource id="1" name="Alejandro Jimenez" function="Default:0" contacts="" phone=""/>
+        <resource id="2" name="Garrett Kerr" function="Default:0" contacts="" phone=""/>
+        <resource id="3" name="Johan Hestenes" function="Default:0" contacts="" phone=""/>
+    </resources>
     <allocations/>
     <vacations/>
     <taskdisplaycolumns>
