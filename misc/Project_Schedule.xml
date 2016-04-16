@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Project Schedule" company="The-Directors" webLink="http://" view-date="2016-03-29" view-index="0" gantt-divider-location="353" resource-divider-location="300" version="2.7.2" locale="en_US">
+<?xml version="1.0" encoding="UTF-8"?><project name="Project Schedule" company="The-Directors" webLink="http://" view-date="2016-02-20" view-index="0" gantt-divider-location="353" resource-divider-location="300" version="2.7.1" locale="en_US">
     <description/>
-    <view zooming-state="default:3" id="gantt-chart">
+    <view zooming-state="default:0" id="gantt-chart">
         <field id="tpd3" name="Name" width="57" order="0"/>
         <field id="tpd4" name="Begin date" width="21" order="1"/>
         <field id="tpd5" name="End date" width="21" order="2"/>
@@ -8,7 +8,7 @@
     </view>
     <view id="resource-table">
         <field id="0" name="Name" width="50" order="0"/>
-        <field id="1" name="Default role" width="49" order="1"/>
+        <field id="1" name="Default role" width="50" order="1"/>
     </view>
     <!-- -->
     <calendars>
@@ -37,20 +37,24 @@
         <task id="0" name="Code Review" color="#99ff00" meeting="false" start="2016-04-26" duration="1" complete="0" priority="2" expand="true"/>
         <task id="2" name="Application Demo" color="#99ff00" meeting="false" start="2016-05-10" duration="1" complete="0" expand="true"/>
         <task id="5" name="Ship Product!" color="#99ff00" meeting="false" start="2016-05-16" duration="1" complete="0" expand="true"/>
-        <task id="6" name="Present Conceptual Design" color="#99ff00" meeting="false" start="2016-03-03" duration="1" complete="0" expand="true"/>
-        <task id="8" name="Oral Design Review" color="#99ff00" meeting="false" start="2016-04-27" duration="1" complete="0" expand="true"/>
         <task id="12" name="Initial Brainstorming" color="#000000" meeting="false" start="2016-02-01" duration="1" complete="0" expand="true">
             <task id="14" name="Choose Idea For Project" meeting="false" start="2016-02-01" duration="1" complete="0" expand="true"/>
         </task>
+        <task id="16" name="Draft Design Documents" color="#000000" meeting="false" start="2016-02-19" duration="2" complete="0" expand="true">
+            <task id="20" name="Make UML Use Case Diagram" color="#8cb6ce" meeting="false" start="2016-02-19" duration="1" complete="0" expand="true"/>
+            <task id="19" name="Write Use Case Descriptions" color="#8cb6ce" meeting="false" start="2016-02-22" duration="1" complete="0" expand="true"/>
+        </task>
+        <task id="47" name="Prepare to Present Conceptual Design" meeting="false" start="2016-02-25" duration="6" complete="0" expand="true">
+            <task id="36" name="Add Bootstrap theme" color="#8cb6ce" meeting="false" start="2016-02-25" duration="6" complete="100" expand="true"/>
+            <task id="39" name="Add Search functionality" color="#8cb6ce" meeting="false" start="2016-03-03" duration="1" complete="100" expand="true"/>
+            <task id="6" name="Present Conceptual Design" color="#99ff00" meeting="true" start="2016-03-03" duration="0" complete="0" expand="true"/>
+        </task>
+        <task id="8" name="Oral Design Review" color="#99ff00" meeting="false" start="2016-04-27" duration="1" complete="0" expand="true"/>
         <task id="30" name="Implement Additional Features" color="#000000" meeting="false" start="2016-04-07" duration="13" complete="0" expand="true">
             <task id="32" name="Add Lists Feature" color="#8cb6ce" meeting="false" start="2016-04-07" duration="7" complete="0" expand="true"/>
             <task id="33" name="Add Reviews Feature" color="#8cb6ce" meeting="false" start="2016-04-14" duration="7" complete="0" expand="true"/>
             <task id="34" name="Add Ratings Feature" color="#8cb6ce" meeting="false" start="2016-04-14" duration="7" complete="0" expand="true"/>
             <task id="35" name="Update Profile with Tabbed View" color="#8cb6ce" meeting="false" start="2016-04-18" duration="6" complete="0" expand="true"/>
-        </task>
-        <task id="16" name="Draft Design Documents" color="#000000" meeting="false" start="2016-02-19" duration="2" complete="0" expand="true">
-            <task id="20" name="Make UML Use Case Diagram" color="#8cb6ce" meeting="false" start="2016-02-19" duration="1" complete="0" expand="true"/>
-            <task id="19" name="Write Use Case Descriptions" color="#8cb6ce" meeting="false" start="2016-02-22" duration="1" complete="0" expand="true"/>
         </task>
     </tasks>
     <resources>
@@ -59,7 +63,14 @@
         <resource id="2" name="Garrett Kerr" function="SoftwareDevelopment:2" contacts="" phone=""/>
         <resource id="3" name="Johan Hestenes" function="SoftwareDevelopment:2" contacts="" phone=""/>
     </resources>
-    <allocations/>
+    <allocations>
+        <allocation task-id="6" resource-id="0" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="36" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="39" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
+        <allocation task-id="6" resource-id="1" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="6" resource-id="2" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+        <allocation task-id="6" resource-id="3" function="SoftwareDevelopment:2" responsible="false" load="100.0"/>
+    </allocations>
     <vacations/>
     <taskdisplaycolumns>
         <displaycolumn property-id="tpd2" order="-1" width="75" visible="false"/>
