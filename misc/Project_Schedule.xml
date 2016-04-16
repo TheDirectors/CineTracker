@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Project Schedule" company="The-Directors" webLink="http://cinetracker.herokuapp.com/" view-date="2016-04-03" view-index="0" gantt-divider-location="542" resource-divider-location="300" version="2.7.2" locale="en_US">
+<?xml version="1.0" encoding="UTF-8"?><project name="Project Schedule" company="The-Directors" webLink="http://cinetracker.herokuapp.com/" view-date="2016-02-28" view-index="0" gantt-divider-location="542" resource-divider-location="300" version="2.7.2" locale="en_US">
     <description/>
-    <view zooming-state="default:5" id="gantt-chart">
+    <view zooming-state="default:6" id="gantt-chart">
         <field id="tpd3" name="Name" width="55" order="0"/>
         <field id="tpd4" name="Begin date" width="22" order="1"/>
         <field id="tpd5" name="End date" width="21" order="2"/>
@@ -54,7 +54,9 @@
             <task id="19" name="Write Use Case Descriptions" color="#8cb6ce" meeting="false" start="2016-02-22" duration="1" complete="100" expand="true"/>
         </task>
         <task id="47" name="Prepare to Present Conceptual Design" meeting="false" start="2016-02-25" duration="6" complete="0" expand="true">
-            <task id="36" name="Add Bootstrap theme" color="#8cb6ce" meeting="false" start="2016-02-25" duration="6" complete="100" expand="true"/>
+            <task id="36" name="Add Bootstrap theme" color="#8cb6ce" meeting="false" start="2016-02-25" duration="6" complete="100" expand="true">
+                <depend id="35" type="2" difference="20" hardness="Rubber"/>
+            </task>
             <task id="39" name="Add Search functionality" color="#8cb6ce" meeting="false" start="2016-03-03" duration="1" complete="100" expand="true"/>
             <task id="6" name="Present Conceptual Design" color="#99ff00" meeting="true" start="2016-03-03" duration="0" complete="0" expand="true"/>
         </task>
