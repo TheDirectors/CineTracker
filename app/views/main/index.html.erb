@@ -46,12 +46,51 @@
             </div>
         </section>
     <% else %>
-        <section id="recommended" class="content-section text-center">
+        <% @chosen_item = 0 %>
+        <% @chosen_list = [] %>
+        <% @n_list = 1 %>
+        <% if 1 + rand(2) == 1 %>
+            <% @chosen_list = current_user.lists.sample %>
+        <% else %>
+            <% @chosen_list = current_user.lists.sample %>
+            <% @n_list = 2 %>
+        <% end %>
+        <% if @n_list == 1 %>
+            <% @chosen_item = @chosen_list.movie_ids.sample %>
+        <% else %>
+            <% @chosen_item = @chosen_list.tv_show_ids.sample %>
+        <% end %>
+        <% if @chosen_item != nil && @chosen_item > 0 %>
+            <section id="recommended" class="content-section text-center">
+                <div class="recommended-section">
+                    <div class="map">
+                        <div class="">
+                            <h2>Recommendations</h2>
+            <% @results = [] %>
+            <% if @n_list == 1 %>
+                <% @results =  Movie.similar(@chosen_item) %>
+            <% else %>
+                <% @results =  TvShow.similar(@chosen_item) %>
+            <% end %>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <% @results.each do |result| %>
+                        <div class="swiper-slide"><a href="/info?<%= result[1] %>"><%=image_tag(result[0], :class => "poster") %></a></div>
+                    <% end %>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination swiper-pagination-white"></div>
+                <div class="swiper-button-next swiper-button-white"></div>
+                <div class="swiper-button-prev swiper-button-white"></div>
+            </div>
+        <% else %>
+        <section id="recommended-empty" class="content-section text-center">
             <div class="recommended-section">
-                <div class="container">
-                    <div class="col-lg-8 col-lg-offset-2">
+                <div class="map">
+                    <div class="">
                         <h2>Recommendations</h2>
-                        <p>Recommendations will be shown here.</p>
+                        <p>No recommendations found.</p>
+        <% end %>
                     </div>
                 </div>
             </div>
@@ -83,7 +122,7 @@
 
     <!-- Map Section -->
     <section>
-        <div id="map">
+        <div class="map">
         <% @results = [] %>
         <% if params[:mov] != nil && params[:mov] != "" %>
             <% @results = Movie.search(params[:mov]) %>

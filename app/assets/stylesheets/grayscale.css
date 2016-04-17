@@ -371,7 +371,7 @@ body {
     font-size: 14px;
 }
 
-#map {
+.map {
     height: inherit;
     margin-top: 30px;
     margin-bottom: 30px;
@@ -501,16 +501,20 @@ body {
 
 #recommended {
     height: 100%;
+    padding-top: 0px;
 }
-
+#recommended-empty {
+    height: 100%;
+    padding-top: 250px;
+}
 .recommended-section {
     width: 100%;
     padding: 250px 0;
     color: #fff;
     background: url("/assets/sign-up-bg.jpg") no-repeat center center scroll;
     background-color: #000;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+    -webkit-background-size: 100% auto;
+    -moz-background-size: 100% auto;
+    background-size: 100% auto;
+    -o-background-size: 100% auto;
 }
