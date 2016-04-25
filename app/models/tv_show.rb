@@ -37,7 +37,7 @@ class TvShow < ActiveRecord::Base
 		@base_url = Tmdb::Configuration.get.images.base_url + Tmdb::Configuration.get.images.poster_sizes[3]
 		@count = 0
 		@results = []
-		if query != nil && query != ""
+		if query != nil && query != 0
 			Tmdb::TV.similar(query).results.each do |mov|
 				if @count >= 10
 					break
@@ -48,17 +48,7 @@ class TvShow < ActiveRecord::Base
 				@count += 1
 			end
 		else
-			@results = [
-				["deadpool-poster.jpg", "mov=293660"], 
-	            ["interstellar-poster.jpg", "mov=157336"], 
-	            ["mad-max-fury-road-poster.jpg", "mov=76341"], 
-	            ["the-martian-poster.jpg", "mov=286217"], 
-	            ["star-wars-the-force-awakens-poster.jpg", "mov=140607"], 
-	            ["spectre-poster.jpg", "mov=206647"], 
-	            ["kingsman-the-secret-service-poster.jpg", "mov=207703"], 
-	            ["ex-machina-poster.jpg", "mov=264660"], 
-	            ["sicario-poster.jpg", "mov=273481"], 
-	            ["the-revenant-poster.jpg", "mov=281957"]]
+			#use this to initialize results to popular in case an id is not provided
 		end
 		return @results
 	end

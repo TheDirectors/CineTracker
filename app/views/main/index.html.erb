@@ -47,18 +47,11 @@
         </section>
     <% else %>
         <% @chosen_item = 0 %>
-        <% @chosen_list = [] %>
-        <% @n_list = 1 %>
-        <% if 1 + rand(2) == 1 %>
-            <% @chosen_list = current_user.lists.sample %>
+        <% @tv_flag = rand(2) %>
+        <% if @tv_flag == 0 %>
+            <% @chosen_item = current_user.lists.sample.movie_ids.sample %>
         <% else %>
-            <% @chosen_list = current_user.lists.sample %>
-            <% @n_list = 2 %>
-        <% end %>
-        <% if @n_list == 1 %>
-            <% @chosen_item = @chosen_list.movie_ids.sample %>
-        <% else %>
-            <% @chosen_item = @chosen_list.tv_show_ids.sample %>
+            <% @chosen_item = current_user.lists.sample.tv_show_ids.sample %>
         <% end %>
         <% if @chosen_item != nil && @chosen_item > 0 %>
             <section id="recommended" class="content-section text-center">
@@ -67,7 +60,7 @@
                         <div class="">
                             <h2>Recommendations</h2>
             <% @results = [] %>
-            <% if @n_list == 1 %>
+            <% if @tv_flag == 0 %>
                 <% @results =  Movie.similar(@chosen_item) %>
             <% else %>
                 <% @results =  TvShow.similar(@chosen_item) %>
