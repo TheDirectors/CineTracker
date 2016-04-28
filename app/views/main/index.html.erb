@@ -121,8 +121,6 @@
             <% @results = Movie.search(params[:mov]) %>
         <% else %>
             <% @results = TvShow.search(params[:tv]) %>
-            <% if params[:tv] != nil && params[:tv] != "" %>
-            <% end %>
         <% end %>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
