@@ -13,22 +13,72 @@
 			<% current_user.lists[params[:list].to_i].save %>
 		<% end %>
 	<% end %>
-	<h2 class='User_Header'> <a href="/profile"><%= current_user.name %>'s Profile</a> <h2>
-	<% current_user.lists.each_with_index do |lis, index| %>
-	<h3><%= lis.name %></h3>
-	<h4>Movies</h4>
-	<p>
-		<% lis.movie_ids.each do |id| %>
-			<a href="/info?mov=<%= id %>"><%= Movie.info(id)[:title] %></a>
-			<a href="/profile?del=<%= id %>&type=mov&list=<%= index %>">[Delete]</a><br/>
-		<% end %>
-	</p>
-	<h4>Shows</h4>
-	<p>
-		<% lis.tv_show_ids.each do |id| %>
-			<a href="/info?tv=<%= id %>"><%= TvShow.info(id)[:name] %></a>
-			<a href="/profile?del=<%= id %>&type=tv&list=<%= index %>">[Delete]</a><br/>
-		<% end %>
-	</p>
-	<% end %>
+	<h3 class='User_Header'> <a href="/profile"><%= current_user.name %>'s Profile</a> <h3>
+
+	<% @dropdown_flag = false %>
+	<div class="panel with-nav-tabs panel-primary" style="background-color: black; border-color: white; font-size: 22px;">
+		<div class="panel-heading" style="background-color: black; border-color: white;">
+			<ul class="nav nav-tabs">
+				<% current_user.lists.each_with_index do |lis, index| %>
+				    <% @tab_ref = "#" + lis.name + "" %>
+					<% if index == 0 %>
+						<li class="active"><a data-toggle="tab" href="<%= @tab_ref %>"><%= lis.name %></a></li>
+					<% elsif index < 3 %>  
+						<li><a data-toggle="tab" href="<%= @tab_ref %>"><%= lis.name %></a></li>
+					<% elsif !@dropdown_flag %>
+						<li class="dropdown">
+                            <a href="#" data-toggle="dropdown">Custom Lists <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                            	<% current_user.lists.each_with_index do |lis_sub, index_sub| %>
+                            		<% @tab_ref_sub = "#" + lis_sub.name + "" %>
+                            		<% if index_sub >= 3 %>
+		                                <li><a data-toggle="tab" href="<%= @tab_ref_sub %>"><%= lis_sub.name %></a></li>
+	                                <% end %>
+                                <% end %>
+                               <% @dropdown_flag = true %>
+                            </ul>
+                        </li>
+					<% end %>
+				<% end %>
+			</ul>
+		</div>
+
+		<div class="panel-body" style="padding-top: 0px;">
+			<div class="tab-content">
+				<% current_user.lists.each_with_index do |lis, index| %>
+					<% if index == 0 %>
+						<div id="<%= lis.name %>" class="tab-pane fade in active">
+					<% else %>
+						<div id="<%= lis.name %>" class="tab-pane fade">
+					<% end %>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Title</th>
+								<th>Options</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<p>
+								<% lis.movie_ids.each do |id| %>
+									<tr>
+										<td><a href="/info?mov=<%= id %>"><%= Movie.info(id)[:title] %></a></td>
+										<td><a href="/profile?del=<%= id %>&type=mov&list=<%= index %>">Delete</a></td>
+									</tr>
+								<% end %>
+								<% lis.tv_show_ids.each do |id| %>
+									<tr>
+										<td><a href="/info?tv=<%= id %>"><%= TvShow.info(id)[:name] %></a></td>
+										<td><a href="/profile?del=<%= id %>&type=tv&list=<%= index %>">Delete</a></td>
+									</tr>
+								<% end %>
+							</p>
+						</tbody>
+					</table>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
 </div>
