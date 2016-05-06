@@ -47,7 +47,7 @@
         </section>
     <% else %>
         <% @chosen_item = 0 %>
-        <% @tv_flag = rand(2) %>
+        <% @tv_flag = rand(0..1) %>
         <% if @tv_flag == 0 %>
             <% @chosen_item = current_user.lists.sample.movie_ids.sample %>
         <% else %>

@@ -38,12 +38,12 @@ class TvShow < ActiveRecord::Base
 		@count = 0
 		@results = []
 		if query != nil && query != 0
-			Tmdb::TV.similar(query).results.each do |mov|
+			Tmdb::TV.similar(query).results.each do |tv|
 				if @count >= 10
 					break
 				end
-				if mov["poster_path"] != nil
-					@results << [@base_url + mov["poster_path"], "mov=" + mov[:id].to_s]
+				if tv["poster_path"] != nil
+					@results << [@base_url + tv["poster_path"], "tv=" + tv[:id].to_s]
 				end
 				@count += 1
 			end
