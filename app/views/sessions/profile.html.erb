@@ -78,6 +78,13 @@
 					</table>
 					</div>
 				<% end %>
+        <ul class="list-inline banner-social-buttons">
+          <li>
+            <form method="" action="<%= @list = current_user.lists.create(:name => params[:new_list]) if params[:new_list] != nil and params[:new_list] != ""%> <%= @list.save if @list != nil and @list != ""%>"/>
+              <input type="text" name="new_list"class="btn btn-lg btn-default" placeholder="create new list" autocomplete="off">
+            </form>
+          </li>
+        </ul>
 			</div>
 		</div>
 	</div>
