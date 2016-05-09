@@ -7,11 +7,10 @@
 		<p>The item has been deleted from your <%= current_user.lists[params[:list].to_i].name %> list.</p>
 		<% if params[:type] == "mov" %>
 			<% current_user.lists[params[:list].to_i].movie_ids.delete(params[:del].to_i) %>
-			<% current_user.lists[params[:list].to_i].save %>
 		<% elsif params[:type] == "tv" %>
 			<% current_user.lists[params[:list].to_i].tv_show_ids.delete(params[:del].to_i) %>
-			<% current_user.lists[params[:list].to_i].save %>
 		<% end %>
+		<% current_user.lists[params[:list].to_i].save %>
 	<% end %>
 	<h3 class='User_Header'> <a href="/profile"><%= current_user.name %>'s Profile</a> <h3>
 
@@ -78,6 +77,9 @@
 					</table>
 					</div>
 				<% end %>
+			</div>
+		</div>
+	</div>
         <ul class="list-inline banner-social-buttons">
           <li>
             <form method="" action="<%= @list = current_user.lists.create(:name => params[:new_list]) if params[:new_list] != nil and params[:new_list] != ""%> <%= @list.save if @list != nil and @list != ""%>"/>
@@ -85,7 +87,4 @@
             </form>
           </li>
         </ul>
-			</div>
-		</div>
-	</div>
 </div>

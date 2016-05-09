@@ -46,16 +46,32 @@
 		<h1>Summary</h1>
 		<p><%= @result[:overview] %></p>
 		<% if logged_in? %>
+			<% @dropdown_flag = false %>
 			<ul class="text-center list-inline banner-social-buttons">
-				<% current_user.lists.each do |lis| %>
+				<% current_user.lists.each_with_index do |lis, index| %>
+					<% if index < 3 %>
 				    <li>
 				        <form>
-				        	<input type="hidden" name="bg" value="<%= @result[:backdrop_path][1..-1] %>"></input>
 				        	<input type="hidden" name="type" value="<%= @type %>"></input>
 				        	<input type="hidden" name="id" value="<%= @id %>"></input>
+				        	<input type="hidden" name="bg" value="<%= @result[:backdrop_path][1..-1] %>"></input>
 				            <button type="submit" name="addto" class="btn btn-lg btn-default" value="<%= lis.name %>">Add to "<%= lis.name %>" list</button>
 				        </form>
 				    </li>
+				    <% elsif !@dropdown_flag %>
+						<li class="dropdown">
+				            <button href="" data-toggle="dropdown" type="submit" class="btn btn-lg btn-default">Add to Custom list</button>
+                            <ul class="dropdown-menu info-drop" role="menu">
+                            	<% current_user.lists.each_with_index do |lis_sub, index_sub| %>
+                            		<% @tab_ref_sub = "?type=mov&id=" + @id + "&bg=" + @result[:backdrop_path][1..-1] + "&addto=" + lis_sub.name + "" %>
+                            		<% if index_sub >= 3 %>
+		                                <li><a data-toggle="tab dropdown-toggle disabled" href="<%= @tab_ref_sub %>"><%= lis_sub.name %></a></li>
+	                                <% end %>
+                                <% end %>
+                               <% @dropdown_flag = true %>
+                            </ul>
+                        </li>
+				    <% end %>
 			    <% end %>
 			</ul>
         <% end %>

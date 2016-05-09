@@ -14,7 +14,11 @@
 }
 
 .dropdown-menu {
-    min-width: 295px;
+    min-width: 233px;
+}
+
+.info-drop {
+    left: 7px;
 }
 
 body {
