@@ -34,17 +34,28 @@
 		<% @id = params[:mov] %>
 	    <% @result = Movie.info(@id) %>
 	    <% @term = "title" %>
+	    <% @video = Movie.videos(@id) %>
 	<% elsif params[:tv] != nil && params[:tv] != "" %>
 		<% @type = "tv" %>
 		<% @id = params[:tv] %>
 	    <% @result = TvShow.info(@id) %>
 	    <% @term = "name" %>
+	    <% @video = TvShow.videos(@id) %>
 	<% end %>
 	<div class="info">
-		<h1>Title</h1>
-		<p><%= @result[@term] %></p>
-		<h1>Summary</h1>
-		<p><%= @result[:overview] %></p>
+		<h1><span style="color: #EB3C3C;"><%= @result[@term] %></span>
+			<% if @video != nil %>
+				<button type="submit" class="btn btn-lg btn-default" onclick="showVideo();">Trailer</button>
+			<% end %>
+		</h1>
+		<% if @video != nil %>
+			<div onClick="hideVideo();" id="fade" class="black-overlay"></div>
+			<div id="light" class="ytplayer">
+				<iframe type="text/html" width="720" height="480" data-src="http://www.youtube.com/embed/<%= @video %>?origin=cinetracker.herokuapp.com" frameborder="0" allowfullscreen></iframe>
+			</div>
+		<% end %>
+		<h3 class="summary-header">Summary</h3>
+		<p class="summary"><%= @result[:overview] %></p>
 		<% if logged_in? %>
 			<% @dropdown_flag = false %>
 			<ul class="text-center list-inline banner-social-buttons">
@@ -81,6 +92,28 @@
 <% end %>
 </div>
 <style type="text/css">
+	.ytplayer {
+		display: none;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index:10002;
+		overflow: auto;
+	}
+	.black-overlay{
+        display: none;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index:10001;
+        -moz-opacity: 0.8;
+        opacity:.80;
+        filter: alpha(opacity=80);
+    }
 	body {
 		background: url(<%= @backdrop %>) no-repeat bottom center scroll;
 	    background-color: #000;
@@ -101,4 +134,28 @@
 		padding-bottom: 1px;
 		background-color: rgba(0, 0, 0, .7);
 	}
-</style>
+</style> 
+<script>
+	function showVideo() {
+		$(".ytplayer").show(function(){
+		    // Find the iframes within our newly-visible element
+		    $(this).find("iframe").prop("src", function(){
+		        // Set their src attribute to the value of data-src
+		        return $(this).data("src") + "&autoplay=1";
+		    });
+		});
+		document.getElementById('light').style.display='block';
+		document.getElementById('fade').style.display='block'
+	}
+	function hideVideo() {
+		$(".ytplayer").show(function(){
+		    // Find the iframes within our newly-visible element
+		    $(this).find("iframe").prop("src", function(){
+		        // Set their src attribute to the value of data-src
+		        return $(this).data("src") + "&autoplay=0";
+		    });
+		});
+		document.getElementById('light').style.display='none';
+		document.getElementById('fade').style.display='none';
+	}
+</script>

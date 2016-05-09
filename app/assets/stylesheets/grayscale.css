@@ -9,12 +9,27 @@
     border-right: 7px solid transparent;
 }
 
+h1 .btn-lg {
+    float: right;
+}
+
+.summary-header {
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.summary {
+    margin-bottom: 15px;
+}
+
 .nav-tabs {
     border-bottom: 0px;
 }
 
 .dropdown-menu {
     min-width: 233px;
+    text-transform: capitalize;
+    font-size: 18px;
 }
 
 .info-drop {

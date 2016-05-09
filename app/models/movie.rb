@@ -60,4 +60,15 @@ class Movie < ActiveRecord::Base
 		end
 		return @results
 	end
+	def self.videos(query)
+		Tmdb::Api.key(ENV["TMDB_KEY"])
+		@result = []
+		if query != nil && query != ""
+			@result = Tmdb::Movie.videos(query)[0]
+			if @result != nil && @result != ""
+				@result = @result['key']
+			end
+		end
+		return @result
+	end
 end
