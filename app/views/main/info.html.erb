@@ -63,7 +63,7 @@
 				            <button href="" data-toggle="dropdown" type="submit" class="btn btn-lg btn-default">Add to Custom list</button>
                             <ul class="dropdown-menu info-drop" role="menu">
                             	<% current_user.lists.each_with_index do |lis_sub, index_sub| %>
-                            		<% @tab_ref_sub = "?type=mov&id=" + @id + "&bg=" + @result[:backdrop_path][1..-1] + "&addto=" + lis_sub.name + "" %>
+                            		<% @tab_ref_sub = "?type=" + @type + "&id=" + @id + "&bg=" + @result[:backdrop_path][1..-1] + "&addto=" + lis_sub.name + "" %>
                             		<% if index_sub >= 3 %>
 		                                <li><a data-toggle="tab dropdown-toggle disabled" href="<%= @tab_ref_sub %>"><%= lis_sub.name %></a></li>
 	                                <% end %>
