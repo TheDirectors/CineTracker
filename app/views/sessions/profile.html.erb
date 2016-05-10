@@ -4,7 +4,8 @@
 
 <div class = "container content-section">
 	<% if params[:new_list] != nil && params[:new_list] != "" && !List.exists?(:name => params[:new_list])%>
-		<% @list = current_user.lists.create(:name => params[:new_list]) %> 
+		<% @list = List.create(:name => params[:new_list]) %> 
+		<% current_user.lists << @list %>
 		<% @list.save %>
 	<% end %>
 	<% if params[:del] != nil && params[:type] != nil && params[:list] != nil %>
