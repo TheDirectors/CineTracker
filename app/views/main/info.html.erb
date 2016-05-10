@@ -51,7 +51,7 @@
 		<% if @video != nil %>
 			<div onClick="hideVideo();" id="fade" class="black-overlay"></div>
 			<div id="light" class="ytplayer">
-				<iframe id="frame" type="text/html" width="720" height="480" data-src="http://www.youtube.com/embed/<%= @video %>?origin=cinetracker.herokuapp.com" frameborder="0" allowfullscreen></iframe>
+				<iframe id="frame" type="text/html" width="720" height="480" data-src="https://www.youtube.com/embed/<%= @video %>?origin=cinetracker.herokuapp.com" frameborder="0" allowfullscreen></iframe>
 			</div>
 		<% end %>
 		<h3 class="summary-header">Summary</h3>
@@ -142,7 +142,7 @@
 			frame.setAttribute("type", "text/html");
 			frame.setAttribute("width", "720");
 			frame.setAttribute("height", "480");
-			frame.setAttribute("data-src", "http://www.youtube.com/embed/<%= @video %>?origin=cinetracker.herokuapp.com");
+			frame.setAttribute("data-src", "https://www.youtube.com/embed/<%= @video %>?origin=cinetracker.herokuapp.com");
 			frame.setAttribute("frameborder", "0");
 			frame.setAttribute("allowfullscreen", "");
 			document.getElementById("light").appendChild(frame);
