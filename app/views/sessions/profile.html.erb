@@ -33,7 +33,11 @@
                             <a href="#" data-toggle="dropdown">Custom Lists <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                             	<% current_user.lists.each_with_index do |lis_sub, index_sub| %>
-                            		<% @tab_ref_sub = "#" + lis_sub.name + "" %>
+	                            	<% @name = lis_sub.name.dup %>
+									<% if @name.gsub!(/\s/,'-') == nil %>
+										<% @name = lis_sub.name %>
+									<% end %>
+                            		<% @tab_ref_sub = "#" + @name + "" %>
                             		<% if index_sub >= 3 %>
 		                                <li><a data-toggle="tab" href="<%= @tab_ref_sub %>"><%= lis_sub.name %></a></li>
 	                                <% end %>
@@ -49,10 +53,14 @@
 		<div class="panel-body" style="padding-top: 0px;">
 			<div class="tab-content">
 				<% current_user.lists.each_with_index do |lis, index| %>
+					<% @name = lis.name.dup %>
+					<% if @name.gsub!(/\s/,'-') == nil %>
+						<% @name = lis.name %>
+					<% end %>
 					<% if index == 0 %>
-						<div id="<%= lis.name %>" class="tab-pane fade in active">
+						<div id="<%= @name %>" class="tab-pane fade in active">
 					<% else %>
-						<div id="<%= lis.name %>" class="tab-pane fade">
+						<div id="<%= @name %>" class="tab-pane fade">
 					<% end %>
 					<table class="table table-hover">
 						<thead>
