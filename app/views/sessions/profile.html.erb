@@ -3,6 +3,10 @@
 <% end %>
 
 <div class = "container content-section">
+	<% if params[:new_list] != nil && params[:new_list] != "" && !List.exists?(:name => params[:new_list])%>
+		<% @list = current_user.lists.create(:name => params[:new_list]) %> 
+		<% @list.save %>
+	<% end %>
 	<% if params[:del] != nil && params[:type] != nil && params[:list] != nil %>
 		<p>The item has been deleted from your <%= current_user.lists[params[:list].to_i].name %> list.</p>
 		<% if params[:type] == "mov" %>
@@ -82,7 +86,7 @@
 	</div>
         <ul class="list-inline banner-social-buttons">
           <li>
-            <form method="" action="<%= @list = current_user.lists.create(:name => params[:new_list]) if params[:new_list] != nil and params[:new_list] != "" and not List.exists?(:name => params[:new_list])%> <%= @list.save if @list != nil and @list != ""%>"/>
+            <form method="get" action=""/>
               <input type="text" name="new_list"class="btn btn-lg btn-default" placeholder="create new list" autocomplete="off">
             </form>
           </li>
