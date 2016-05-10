@@ -64,7 +64,7 @@ class TvShow < ActiveRecord::Base
 		Tmdb::Api.key(ENV["TMDB_KEY"])
 		@result = []
 		if query != nil && query != ""
-			@result = Tmdb::TvShow.videos(query)[0]
+			@result = Tmdb::TV.videos(query)[0]
 			if @result != nil && @result != ""
 				@result = @result['key']
 			end
