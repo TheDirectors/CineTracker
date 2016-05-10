@@ -59,7 +59,7 @@
 		<% if logged_in? %>
 			<% @dropdown_flag = false %>
 			<ul class="text-center list-inline banner-social-buttons">
-				<% current_user.lists.each_with_index do |lis, index| %>
+				<% current_user.lists.order("id ASC").each_with_index do |lis, index| %>
 					<% if index < 3 %>
 				    <li>
 				        <form>
@@ -73,7 +73,7 @@
 						<li class="dropdown">
 				            <button href="" data-toggle="dropdown" type="submit" class="btn btn-lg btn-default">Add to Custom list</button>
                             <ul class="dropdown-menu info-drop" role="menu">
-                            	<% current_user.lists.each_with_index do |lis_sub, index_sub| %>
+                            	<% current_user.lists.order("id ASC").each_with_index do |lis_sub, index_sub| %>
                             		<% @tab_ref_sub = "?type=" + @type + "&id=" + @id + "&bg=" + @result[:backdrop_path][1..-1] + "&addto=" + lis_sub.name + "" %>
                             		<% if index_sub >= 3 %>
 		                                <li><a data-toggle="tab dropdown-toggle disabled" href="<%= @tab_ref_sub %>"><%= lis_sub.name %></a></li>

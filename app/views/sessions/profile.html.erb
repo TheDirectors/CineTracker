@@ -3,10 +3,12 @@
 <% end %>
 
 <div class = "container content-section">
-	<% if params[:new_list] != nil && params[:new_list] != "" && !List.exists?(:name => params[:new_list])%>
-		<% @list = List.create(:name => params[:new_list]) %> 
-		<% current_user.lists << @list %>
-		<% @list.save %>
+	<% if params[:new_list] != nil && params[:new_list] != "" %>
+		<% if current_user.lists.find_by(name: params[:new_list]) == nil %>
+			<% @list = List.create(:name => params[:new_list]) %> 
+			<% current_user.lists << @list %>
+			<% @current_user.lists.find_by(name: params[:new_list]).save %>
+		<% end %>
 	<% end %>
 	<% if params[:del] != nil && params[:type] != nil && params[:list] != nil %>
 		<p>The item has been deleted from your <%= current_user.lists[params[:list].to_i].name %> list.</p>
@@ -23,7 +25,7 @@
 	<div class="panel with-nav-tabs panel-primary" style="background-color: black; border-color: white; font-size: 22px;">
 		<div class="panel-heading" style="background-color: black; border-color: white;">
 			<ul class="nav nav-tabs">
-				<% current_user.lists.each_with_index do |lis, index| %>
+				<% current_user.lists.order("id ASC").each_with_index do |lis, index| %>
 				    <% @tab_ref = "#" + lis.name + "" %>
 					<% if index == 0 %>
 						<li class="active"><a data-toggle="tab" href="<%= @tab_ref %>"><%= lis.name %></a></li>
@@ -33,7 +35,7 @@
 						<li class="dropdown">
                             <a href="#" data-toggle="dropdown">Custom Lists <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                            	<% current_user.lists.each_with_index do |lis_sub, index_sub| %>
+                            	<% current_user.lists.order("id ASC").each_with_index do |lis_sub, index_sub| %>
 	                            	<% @name = lis_sub.name.dup %>
 									<% if @name.gsub!(/\s/,'-') == nil %>
 										<% @name = lis_sub.name %>
@@ -53,7 +55,7 @@
 
 		<div class="panel-body" style="padding-top: 0px;">
 			<div class="tab-content">
-				<% current_user.lists.each_with_index do |lis, index| %>
+				<% current_user.lists.order("id ASC").each_with_index do |lis, index| %>
 					<% @name = lis.name.dup %>
 					<% if @name.gsub!(/\s/,'-') == nil %>
 						<% @name = lis.name %>
